@@ -1,9 +1,14 @@
 import request from "supertest";
-import express, { Request, Response } from "express";
+import mongoose from "mongoose";
 import { app } from "../../app";
 
 it("return 404 if the ticket is not found", async () => {
-  await request(app).get("/api/tickets/invalidticketid").send({}).expect(404);
+  const id = mongoose.Types.ObjectId().toHexString();
+  await request(app)
+    .get(`/api/tickets/${id}`)
+    .set("Cookie", global.signin())
+    .send({})
+    .expect(404);
 });
 it("returns the ticket if the ticket is found", async () => {
   const title = "product_1";
