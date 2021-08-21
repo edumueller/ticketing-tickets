@@ -6,7 +6,7 @@ it("has a route handler listening to /api/tickets for post requests", async () =
 
   expect(response.status).not.toEqual(404);
 });
-it("can only be accessed if the user is signed in");
-it("returns an error if an invalid title is provided");
-it("returns an error if an invalid price is provided");
-it("creates a ticket with valid inputs");
+it.todo("can only be accessed if the user is signed in");
+it.todo("returns an error if an invalid title is provided");
+it.todo("returns an error if an invalid price is provided");
+it.todo("creates a ticket with valid inputs");
